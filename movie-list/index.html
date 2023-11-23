@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Movies List</title>
+   <link rel="stylesheet" href="style.css">
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+   <h1 id="heading"> Favaroute Movies</h1>
+
+   <div class="gridContainer">
+      <div id="container">
+         <input type="text" name="" id="inputBox" placeholder="Movie-Name">
+         <button id="add">Add</button> 
+      </div>
+   
+      <ul id="list">
+         
+      </ul>
+   </div>
+
+   <script>
+      let name = document.getElementById('inputBox');
+      let add = document.getElementById('add');
+      let list = document.getElementById('list');
+      let size = 0;
+      let msg = document.createElement('h3');
+          msg.textContent = "Add Your Movies";
+          msg.className = "msg";
+
+      add.addEventListener('click',addMovie);
+       
+      if(size === 0) list.appendChild(msg);
+
+      function addMovie() {
+         //add movie
+         if(name.value == '') {
+            alert("input box is empty")
+         } else {
+            size+=1;
+            list.innerHTML += ` 
+            <li>
+               <b> ` + name.value + `</b> 
+               <button class ="edit" onclick ="editMovie(this)">edit</button>
+               <button class ="remove" onclick ="removeMovie(this)">remove</button> 
+            </li>`;
+            name.value = "";
+         }
+         
+         if(size === 1) list.children[0].remove();
+      }
+
+      function removeMovie(element) {
+         element.parentNode.remove();
+         size-=1;
+         if(size === 0) list.appendChild(msg);
+      
+      }
+
+      function editMovie(element) {
+         
+          if(element.textContent == 'edit') {
+            element.textContent = "done";  
+            let movie = element.previousElementSibling.textContent;
+            let newItem = document.createElement('input');
+            newItem.type = 'text';
+            newItem.value = movie;
+            element.parentNode.children[0].replaceWith(newItem); 
+          } else {
+            element.textContent = "edit";  
+            let movie = element.previousElementSibling.value;
+            let newItem = document.createElement('b');
+            newItem.textContent = movie;
+            element.parentNode.children[0].replaceWith(newItem);
+          }
+          
+      }
+      
+
+
+   </script>
+   
+</body>
+</html>

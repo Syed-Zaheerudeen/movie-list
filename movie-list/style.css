@@ -1,0 +1,84 @@
+#list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.msg {
+    color:ivory;
+    opacity: 0.6;
+    text-align: center;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+    margin: 0;
+    margin-top: 5px;
+    background-color:aquamarine;
+    display: flex;
+}
+
+li b,input {
+    flex-grow: 1;
+}
+
+li input {
+  margin-right: 80px;
+  outline: none;
+}
+
+li .edit {
+    margin-right:5px;
+    margin-left:5px;
+    background-color: greenyellow;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+li .remove {
+    background-color: red;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+}
+
+#inputBox {
+    padding: 8px;
+    width: 80%;
+    margin-right: 0;
+    outline: none;
+}
+
+#add {
+    padding: 8px;
+    width: 75px;
+    margin-left: 0;
+    background-color:aquamarine;
+    cursor: pointer;
+    border: 1px solid;
+}
+
+#heading {
+    font-size: 55px;
+    font-family:Arial, Helvetica, sans-serif;
+    letter-spacing: 30px;
+    margin-left: 60px;
+    color: #fff;
+}
+
+.gridContainer {
+    display: grid;
+    width: 500px;
+
+}
